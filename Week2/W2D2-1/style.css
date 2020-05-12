@@ -1,0 +1,81 @@
+
+
+body
+{   font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    line-height: 25px;
+}
+img{
+    height: 200px;
+    margin-top: 60px;
+    margin-left: 30px;
+    position: relative;
+}
+h1{
+    margin-top: 30px;
+}
+hr{
+    border-top: 3px dashed darkslategray;
+    
+    margin-top: 40px;
+}
+header {
+    text-align: center;
+    color: white;
+    background-color: dimgray;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+#header {
+    font-size: 60px;
+    font-stretch: expanded;
+    
+}
+#tekstonder {
+    font-size: 24px;
+}
+#reviews  {
+    height: 100%;
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows:  repeat(4, auto) ;
+
+} 
+#design1 {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+#afb1 {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+#design2 {
+    grid-column: 2;
+    grid-row: 2;    
+}
+
+#afb2 {
+    grid-column: 1;
+    grid-row: 2;
+}
+#design3 {
+    grid-column: 2;
+    grid-row: 3;    
+}
+
+#afb3 {
+    grid-column: 1;
+    grid-row: 3;
+}
+#design4 {
+    grid-column: 2;
+    grid-row: 4;    
+}
+
+#afb4 {
+    grid-column: 1;
+    grid-row: 4;
+}

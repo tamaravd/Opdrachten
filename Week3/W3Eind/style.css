@@ -1,0 +1,43 @@
+/* styling was niet de scope van deze opdracht, dus is hier beperkt aandacht aan besteedt. */
+
+body{
+    background-color: #f5faf7;
+    color: darkslategray;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 100px;
+    width: 800px;
+    border: solid;
+    border-color: #44524a;
+
+}
+
+div{
+    text-align: center;
+    background-color: lightgray;
+    padding: 20px;
+    font-size: 18px;
+
+}
+
+button{
+    margin-left: 10px;
+    border-radius: 5px;
+    font-size: 28px;
+    background-color: #44524a;
+    color: white;
+}
+
+h1{
+    text-align: center;
+    color: white;
+}
+
+#inputField {
+    border-radius: 5px;
+    font-size: 28px;
+}
+
+#header{
+    background-color: #44524a;
+    color: white;
+}

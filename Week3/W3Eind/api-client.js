@@ -26,7 +26,6 @@ async function getData() {
 async function postData() {
     const descriptionValue = document.querySelector("#inputField").value;
     const formData = `{"description": "${descriptionValue}", "done": false}`; 
-    console.log(formData);
     try {
         const result = await fetch(apiUrlTasks, {
             method: 'POST',

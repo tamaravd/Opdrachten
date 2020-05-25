@@ -1,19 +1,12 @@
 //Als gebruiker wil ik een takenlijst zien
-
 //Als gebruiker wil ik een inputveld zien waarin ik mijn taak in kan vullen.
-
 //Als gebruiker kan ik op een button drukken met de tekst "Add Task" waardoor je ingevulde taak toegevoegd wordt aan de lijst.
-
 //Als gebruiker zie ik wanneer ik op de add button knop heb geklikt, de taak verschijnen in mijn takenlijst.
-
 //Taak verwijderen: Als gebruiker kan ik in de takenlijst op een icoontje klikken van een prullenbak, rechts naast de taak, 
 //waardoor de taak uit mijn takenlijst wordt verwijderd
-
 //🚀  Extra requirements: 
-
 //- Taak doorstrepen: Als gebruiker kan ik in de takenlijst op een checkbox klikken, links naast de taak, 
 //waardoor de tekst van de taak doorgestreept wordt en ik mijn taak kan afstrepen.
-
 //set global values:
 const adjustToDoListTamara = document.querySelector("#todoListTamara");
 const submitButton = document.querySelector("#submitButton");
@@ -31,27 +24,24 @@ const doSomethingWithData = async function() {
     //iets doen voor alle items als done = false
     const dataFalse = data.filter((e) => e.done === false);
     dataFalse.forEach((e) => {
-        adjustToDoListTamara.innerHTML += `<li style="list-style-type:none; font-size:20px; line-height: 2.5; margin-left: -40px" class="listItem" 
-        id="toDo${e.id}" > 
-        <input type="checkbox" style="transform:scale(1.5)" id="${e.id}${e.description}" class="checkbox" default=false> 
-        ${e.description} <img class="trash" id="${e.id}" src="trash-delete-icon.jpg" height=20px> </li><hr  style="width:400px; color: black; align: center" size=1>`;   
+        adjustToDoListTamara.innerHTML += `<li class="listItemFalse" id="toDo${e.id}" > 
+        <input type="checkbox" id="${e.id}${e.description}" class="checkbox" default=false> 
+        ${e.description} <img class="trash" id="${e.id}" src="trash-delete-icon.jpg"> </li>`;   
         
         })
     //iets doen voor alle items als done = true    
     const dataTrue = data.filter((e) => e.done === true);
     dataTrue.forEach((e) => {                   
-        adjustToDoListTamara.innerHTML += `<li style="list-style-type:none; text-decoration:line-through; font-size:20px; line-height: 2.5; margin-left: -40px" class="listItem" id="toDo${e.id}"> 
-        <input type="checkbox" style="transform:scale(1.5)" id="${e.id}${e.description}" label="${e.description}" class="checkbox" checked> 
-        ${e.description} <img class="trash" id="${e.id}" src="trash-delete-icon.jpg" height=20px> </li><hr style="width:400px; color: black; align: center" size=1>`;       
+        adjustToDoListTamara.innerHTML += `<li class="listItemTrue" id="toDo${e.id}"> 
+        <input type="checkbox" id="${e.id}${e.description}" label="${e.description}" class="checkbox" checked> 
+        ${e.description} <img class="trash" id="${e.id}" src="trash-delete-icon.jpg"> </li>`;       
      
     })
     //event listener voor elk van de trashcans:    
     const trashButtons = document.querySelectorAll(".trash");
     trashButtons.forEach(e => e.addEventListener("click", event => {
         const logID = e.id;
-        const apiUrlID = "https://wincacademydatabase.firebaseio.com/Tamara/tasks/"+ logID +".json";
-        console.log(apiUrlID);
-     
+        const apiUrlID = "https://wincacademydatabase.firebaseio.com/Tamara/tasks/"+ logID +".json";  
         const deleteData = async function() {
             const result = await fetch(apiUrlID, {
                 method: 'DELETE'});
@@ -78,21 +68,15 @@ const doSomethingWithData = async function() {
                 console.log(error);
             }}
         changeData();
-               
     }))
 } 
 
-//het uitvoeren van de gedeclareerde functie:
+//het uitvoeren van de gedeclareerde async functie:
 doSomethingWithData();
 
 //een async function voor het posten van data:
 const doSomethingWithPostedData = async function() {
-    const data = await postData();
-    console.log("Before (the raw result):", data); 
-    data.forEach(e => {
-        adjustToDoListTamara.innerHTML += `<li id="toDo${e.id}"> ${e.description} <img class="trash" id="${e.id}" 
-        src="trash-delete-icon.jpg" height=20px> </li>`;
-    })    
+    const data = await postData(); 
 };
 //de eventlistener voor het posten van data, het activeren van de eerder gedeclareerde async functie:
 submitButton.addEventListener("click", event => {

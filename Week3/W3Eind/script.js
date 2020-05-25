@@ -1,16 +1,6 @@
-//Als gebruiker wil ik een takenlijst zien
-//Als gebruiker wil ik een inputveld zien waarin ik mijn taak in kan vullen.
-//Als gebruiker kan ik op een button drukken met de tekst "Add Task" waardoor je ingevulde taak toegevoegd wordt aan de lijst.
-//Als gebruiker zie ik wanneer ik op de add button knop heb geklikt, de taak verschijnen in mijn takenlijst.
-//Taak verwijderen: Als gebruiker kan ik in de takenlijst op een icoontje klikken van een prullenbak, rechts naast de taak, 
-//waardoor de taak uit mijn takenlijst wordt verwijderd
-//🚀  Extra requirements: 
-//- Taak doorstrepen: Als gebruiker kan ik in de takenlijst op een checkbox klikken, links naast de taak, 
-//waardoor de tekst van de taak doorgestreept wordt en ik mijn taak kan afstrepen.
 //set global values:
 const adjustToDoListTamara = document.querySelector("#todoListTamara");
 const submitButton = document.querySelector("#submitButton");
-const style = document.getElementById('style'); 
 
 //async function om iets te doen met de opgehaalde data, het laten zien van alle data in een list item 
 //met een checkbox ervoor en een trash button erachter per item.
@@ -24,15 +14,15 @@ const doSomethingWithData = async function() {
     //iets doen voor alle items als done = false
     const dataFalse = data.filter((e) => e.done === false);
     dataFalse.forEach((e) => {
-        adjustToDoListTamara.innerHTML += `<li class="listItemFalse" id="toDo${e.id}" > 
+        adjustToDoListTamara.innerHTML += `<li class="listItem listItemFalse" id="toDo${e.id}"  > 
         <input type="checkbox" id="${e.id}${e.description}" class="checkbox" default=false> 
-        ${e.description} <img class="trash" id="${e.id}" src="trash-delete-icon.jpg"> </li>`;   
+        <span contenteditable="true" id="sp${e.id}" onfocusout="textChange(event)">${e.description}</span> <img class="trash" id="${e.id}" src="trash-delete-icon.jpg"> </li>`;   
         
         })
     //iets doen voor alle items als done = true    
     const dataTrue = data.filter((e) => e.done === true);
     dataTrue.forEach((e) => {                   
-        adjustToDoListTamara.innerHTML += `<li class="listItemTrue" id="toDo${e.id}"> 
+        adjustToDoListTamara.innerHTML += `<li class="listItem listItemTrue" id="toDo${e.id}"> 
         <input type="checkbox" id="${e.id}${e.description}" label="${e.description}" class="checkbox" checked> 
         ${e.description} <img class="trash" id="${e.id}" src="trash-delete-icon.jpg"> </li>`;       
      
@@ -54,21 +44,41 @@ const doSomethingWithData = async function() {
     checkBoxen.forEach(e => e.addEventListener("click", event => {
         const logIDcb = e.id.substring(0, 20);
         const descriptionValue = e.id.slice(20);
+        const apiUrlID = "https://wincacademydatabase.firebaseio.com/Tamara/tasks/"+ logIDcb + ".json";
         const formData = `{"description": "${descriptionValue}", "done": true}`;  
         console.log(formData);
-        const changeData = async function() {
-        try {
-            const apiUrlID = "https://wincacademydatabase.firebaseio.com/Tamara/tasks/"+ logIDcb + ".json";
-            console.log(apiUrlID);
-            const data = await fetch(apiUrlID, {
-                method: 'PUT',
-                body: formData});
-                location.reload();
-            } catch(error) {
-                console.log(error);
-            }}
+        async function changeData() {
+            try {
+        
+                const data = await fetch(apiUrlID, {
+                    method: 'PUT',
+                    body: formData});
+                    location.reload();
+                } catch(error) {
+                    console.log(error);
+                }}
         changeData();
     }))
+    textChange = (e) => {
+        const logIDcb = e.target.id.slice(2); 
+        console.log(logIDcb);
+        const apiUrlID = "https://wincacademydatabase.firebaseio.com/Tamara/tasks/"+ logIDcb + ".json";
+        let descriptionValue = e.target.innerHTML;
+        console.log(descriptionValue);
+                const formData = `{"description": "${descriptionValue}", "done": false}`;  
+                console.log(formData);
+                async function changeData() {
+                    try {
+                
+                        const data = await fetch(apiUrlID, {
+                            method: 'PUT',
+                            body: formData});
+                            location.reload();
+                        } catch(error) {
+                            console.log(error);
+                        }}
+                //changeData();
+        }
 } 
 
 //het uitvoeren van de gedeclareerde async functie:
@@ -82,8 +92,3 @@ const doSomethingWithPostedData = async function() {
 submitButton.addEventListener("click", event => {
     doSomethingWithPostedData();    
 });
-
-//geprobeerd om de tekst bij aanklikken te kunnen veranderen. maar dan kom ik in de knoei
-/* setTimeout(myFunction = () => {
-    const text = prompt("do you want to change the text?")   
-}, 6000)  */

@@ -1,0 +1,99 @@
+@import url(https://fonts.googleapis.com/css?family=Oswald:700);
+
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+#google:hover {
+    color:blue;
+    font-weight: bold;
+    font-size: 20px;
+}
+#academy:active {
+    color: red;
+    font-style:italic;
+    font-size: 20px;
+}
+#youtube:visited {
+    color:yellow;
+    font-size: 20px;
+}
+
+#inputField:focus {
+  color:green;
+  font-size: 20px;
+  border-color: aqua;
+}
+.currentPage {
+  padding: 20px;
+  margin-top: 0;
+  background-color: slategrey;
+  height: 20px;
+}
+ .item1  {
+   margin-left: 0;
+  padding: 20px;
+  text-align: left;  
+
+}
+.item2 {
+  padding: 20px;
+
+}
+
+.item3 {
+  padding: 20px;
+}
+.item4{
+   padding: 20px;
+
+} 
+.item1:hover  {
+  background-color: lightblue;
+  height: 20px;
+}
+.currentPage:hover {
+  background-color: lightblue;
+  height: 20px;
+}
+
+.item3:hover {
+  background-color: lightblue;
+  height: 20px;
+}
+.item4:hover {
+  background-color: lightblue;
+  height: 20px;
+}
+a {
+
+  text-decoration-line: none;
+  
+}
+.menuBalk {
+  margin-left: 0;
+  padding-left: 0;
+  display: grid;
+  grid-template-columns: 200px repeat(3, 1fr);
+  grid-template-rows: 60px;
+  background-color: darkblue;
+  height: 60px;
+
+}
+
+li {
+  list-style-type: none;
+  text-align: center;
+
+}
+@media (min-width: 1300px) {
+  #inputField { padding: auto; height: 25px; width: 300px}
+
+}
+@media (max-width: 750px) {
+  body {font-size: 20px}
+  .menuBalk {height: 90px; grid-template-columns: 160px repeat(3, 1fr)}
+  .currentPage {height: 50px}
+  #inputField { padding: auto; height: 10px; width: 50px}
+}

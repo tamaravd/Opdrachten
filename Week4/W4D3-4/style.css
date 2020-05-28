@@ -1,0 +1,41 @@
+/* - footer testimonial **paars/blauw**:  #686de0
+- Achtergrond pagina **grijs**: #c3cfe2
+- Achtergrondkleur tekst **wit**: #fff */
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #c3cfe2;
+}
+.container{
+    justify-content: center;
+    width:400px;
+}
+.testimonial{
+    padding:20px;
+    text-align: center;
+    background-color: #fff;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+ 
+    height: 200px;
+}
+.naamEnWebsite{
+    padding:50px 20px 10px 20px;
+    background-color: #686de0;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    text-align: center;
+    margin-top: -60px;
+
+    height: 100px;
+}
+.foto{
+    text-align: center;
+
+}
+img{
+    border: solid white;
+    border-radius: 50%;
+    height: 100px;
+    margin-top: -50px;
+}

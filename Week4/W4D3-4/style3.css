@@ -12,27 +12,32 @@ img {
 .fa-laptop-code::before {
     content: "\f5fc";
     padding: 20px;
+    color: white;
 }
 
 .fa-twitter::before {
     content: "\f099";
     padding: 20px;
+    color: white;
 }
 
 .fa-linkedin-in::before {
     content: "\f0e1";
     padding: 20px;
+    color: white;
 }
 
 .fa-facebook-f::before {
     content: "\f39e";
     padding: 20px;
     padding-left: 25px;
+    color: white;
 }
 
 .fa-github::before {
     content: "\f09b";
     padding: 20px;
+    color: white;
 }
 
 .social-media-container {

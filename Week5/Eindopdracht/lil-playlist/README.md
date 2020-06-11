@@ -1,3 +1,10 @@
+In deze week eindopdracht lag de nadruk niet op de styling maar op de functionaliteit.
+Voor de optionele bonuspunten had ik gekozen voor een deletebutton en de pagina navigatie.
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>

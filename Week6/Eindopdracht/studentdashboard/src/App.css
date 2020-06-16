@@ -1,0 +1,65 @@
+Body{
+  margin: 0;
+}
+.App {
+  text-align: center;
+}
+
+.Chart {
+  height: 150px
+}
+.btnStudents {
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 5px;
+  align-items: center;
+}
+p{
+  margin-top: 20px;
+  margin-left: 10px;
+  height: 20px;
+}
+.optionbox {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 5px;
+  align-items: center;
+}
+.btnStyle  {     
+  margin-top: 10px;
+  background: 'orange';
+  color: '#fff';
+  border: 'none';
+  padding: '5px 9px';
+  cursor: 'pointer';
+}
+.btnFilter{
+  align-items: center;
+  padding: 5px;
+  margin-left: 5px;
+}
+.Label{
+  margin-left: 10px;
+}
+.Header {
+  display: flex;
+  background-color: lightgoldenrodyellow;
+}
+.belowHeader {
+  display: flex;
+  background-color: lightgoldenrodyellow;
+  height: 50px; 
+}
+.block{
+  display: flex;
+  align-content: flex-end;
+  margin-right: 10px;
+}
+Footer {
+  background-color: rgb(248, 229, 175);
+  text-align: right;
+  height: 50px;
+  padding: 20px;
+  scroll-margin-bottom: 0;
+}

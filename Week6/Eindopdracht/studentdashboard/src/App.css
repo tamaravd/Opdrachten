@@ -60,6 +60,7 @@ Footer {
   background-color: rgb(248, 229, 175);
   text-align: right;
   height: 50px;
-  padding: 20px;
-  scroll-margin-bottom: 0;
+  padding: 0px;
+  position: relative;
+  margin-bottom: 0;
 }

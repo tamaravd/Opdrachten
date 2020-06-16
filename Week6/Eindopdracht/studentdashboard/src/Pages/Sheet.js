@@ -10,17 +10,17 @@ class Sheet extends Component {
     super(props);
     this.state = {
         columnDefs : [{
-        headerName: "Id", field: "id"
+        headerName: "Id", field: "id", sortable: true, filter: true
       }, {
-        headerName: "Name", field: "name"
+        headerName: "Name", field: "name", sortable: true, filter: true
       }, {
-        headerName: "Assignment", field: "assignment"
+        headerName: "Assignment", field: "nameAssignment", sortable: true, filter: true
       }, {
-        headerName: "Difficulty", field: "difficulty"
+        headerName: "Difficulty", field: "difficulty", sortable: true, filter: true
       }, {
-        headerName: "Joy", field: "joy"
+        headerName: "Joy", field: "joy", sortable: true, filter: true
       }],
-      rowData: EvaluationData
+      rowData: EvaluationData, paginationAutoPageSize:true
     }
 }
     render() {
@@ -28,14 +28,16 @@ class Sheet extends Component {
       <div
         className="ag-theme-alpine"
         style={{
-        height: '250px',
-        width: '600px' ,
+        height: '20000px',
+        width: '1000px' ,
         marginLeft: "20px"
     }}
       >
+        <h1>Klik op de veldnamen om te sorteren:</h1>
         <AgGridReact
           columnDefs={this.state.columnDefs}
-          rowData={this.state.rowData}>
+          rowData={this.state.rowData}
+          >
         </AgGridReact>
       </div>
     )

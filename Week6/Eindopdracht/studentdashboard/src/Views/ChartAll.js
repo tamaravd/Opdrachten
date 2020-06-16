@@ -19,7 +19,7 @@ return(
             label= "rating"
             style={{ tickLabels: { fontSize: 6, },
             axisLabel: {fontSize: 12, padding: 20}, }}
-            tickValues={[1,2,3,4,5]}
+            tickValues={[1, 2, 3, 4, 5]}
         /> 
         <VictoryLabel 
           x={100} y={25} 

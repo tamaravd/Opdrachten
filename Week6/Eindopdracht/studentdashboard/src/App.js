@@ -8,7 +8,8 @@ import Students from './Components/Students'
 import ChartDifficulty from './Views/ChartDifficulty'
 import ChartJoy from './Views/ChartJoy'
 import Footer from './Layout/Footer'
-import Sheet from './Views/Sheet'
+import Sheet from './Pages/Sheet'
+
 
 
 class App extends React.Component {
@@ -73,10 +74,17 @@ constructor(){
       text= {this.state.text}
       chartDataX = {dataAssignments}       
       />
+    } else if (this.state.filter === "Sheet") {
+      filter = <Sheet
+      />
     }
 
     return (
     <div>
+      <div className="App">
+        
+      </div>
+
         <div className="Header">
         <p><strong>Change to student:</strong></p>
         {this.state.students.map((student, index) => {
@@ -95,6 +103,7 @@ constructor(){
           <option value="Diff">Difficulty average</option>
           <option value="Joy">Joy average</option>
           <option value="Both">Both averages</option>
+          <option value="Sheet">Datasheet</option>
           </select>
           </span>
         
@@ -109,8 +118,7 @@ constructor(){
         <div> 
         {filter}
        </div>
-       <Sheet 
-       evaluations = {this.state.evaluations}/>
+
         <Footer />
       </div>
       )
